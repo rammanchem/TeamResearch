@@ -3,6 +3,7 @@ library(tidyr)
 library(tidyverse)
 
 
+#reading 3 data files
 dataFrame1 <- read.csv("WICAgencies2014ytd/Food_costs.csv")
 dataFrame2 <- read.csv("WICAgencies2015ytd/Food_costs.csv")  
 dataFrame3 <- read.csv("WICAgencies2016ytd/Food_costs.csv")
@@ -10,6 +11,8 @@ dataFrame3 <- read.csv("WICAgencies2016ytd/Food_costs.csv")
 result <- merge(dataFrame1, dataFrame2, by = "State.Agency.or.Indian.Tribal.Organization", all.x = TRUE)
 result <- merge(result, dataFrame3, by = "State.Agency.or.Indian.Tribal.Organization", all.x = TRUE)
 
+
+#merging all three data files
 colnames(result)[1] <- "place"
 
 newDF <- result %>%
@@ -29,4 +32,5 @@ df <- df[df$year %in% c(2014, 2015), ]
 
 wilcox_test <- wilcox.test(foodCost ~ year, data = df)
 
-print(wilcox_test)
+print(wilcox_test) #printing the test results
+

@@ -1,0 +1,5 @@
+Wilcoxon rank sum test with continuity correction
+
+data:  foodCost by year
+W = 642338, p-value = 0.6912
+alternative hypothesis: true location shift is not equal to 0
